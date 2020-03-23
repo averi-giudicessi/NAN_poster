@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Exploring the Criterion Validity of the WISC-IV in a Clinically Referred Sample of Children in Mexico</title>
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 42in 40in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 42in;
+height: 40in;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #0b4545;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00808020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 42in;
+height: calc(40in *  (1 - 0.2 - 0.12 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(40in *  0.2 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #008080;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #008080;
+}
+#title {
+font-size: 80pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #0b4545;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #008080;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #0b454575 33%,
+      #0b4545 50%,
+      #0b454575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 42in;
+height: calc(40in * 0.2);
+position: absolute;
+background-color: #0b4545;
+color: #ffffff90;
+font-family: Rasa;
+background-image: linear-gradient(#0b4545 50%,#008080);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(42in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: Rasa;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 42in;
+height: 40in;
+padding: 0cm;
+}
+.main_bottom {
+width: 42in;
+height: calc(40in * 0.12);
+margin-top: calc(40in * (1 - 0.12));
+position: absolute;
+background-color: #0b4545;
+background-image: linear-gradient(#008080 10%, #0b4545);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title">Exploring the Criterion Validity of the WISC-IV in a Clinically Referred Sample of Children in Mexico</h1><br>
+<h3 id="author" class="author">
+
+Averi Giudicessi<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:averigiudicessi@gmail.com" class="email">averigiudicessi@gmail.com</a> <br>
+ Cristian Ibarra<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:cristian.ibarra@uabc.edu.mx" class="email">cristian.ibarra@uabc.edu.mx</a> <br>
+ Hector Pelayo<sup> 1</sup><br>
+
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+  </h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> Department of Psychology, Benemérita Universidad Autónoma de Puebla
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The Weschler Scale of Intelligence (WISC-IV) is one of the most commonly used measures in the neuropsychological evaluation of children. However, to our knowledge, only one other study addresses the clinical utility of the WISC-IV in a Spanish speaking population in Puerto Rico <span class="citation">(San Miguel Montes et al. <a href="#ref-SanMiguelMontes2010" role="doc-biblioref">2010</a>)</span>.</p>
+<p>The Escala Weschler de Inteligencia para Niños-IV <span class="citation">(Wechsler and Padilla Sierra <a href="#ref-Wechsler2007" role="doc-biblioref">2007</a>)</span> is the most current version of the Weschler Scale of intelligence for use specifically with the Mexican Spanish speaking population.</p>
+<p>The WISC-IV was piloted in Mexico in 2005 and adapted comprehensively using a process that considered the translation, adaptation, and best practice guidelines put forth by the International Guidelines for Test Adaptation <span class="citation">(Fina, Sánchez-Escobedo, and Hollingworth <a href="#ref-Fina2012" role="doc-biblioref">2012</a>)</span>.</p>
+<p>The adaptation of the WISC-IV exemplifies the necessity for appropriate testing material in a Mexican population however, to our knowledge little information is available regarding the clinical utility of this specific instrument in Mexico.</p>
+<div id="objectives" class="section level2">
+<h2>Objectives</h2>
+<p>The objective of this study was to examine the criterion validity of the WISC-IV’s subtests and index scores in a clinically referred sample in Mexico.</p>
+<p>Our hypothesis was that participants in the clinical group would perform significantly worse than their healthy counterparts on both full scale IQ and domain scores than the participants in the control group.</p>
+</div>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<p>The present study included 86 participants, 35 clinical patients referred for neuropsychological evaluation for persistent learning difficulties at a public clinic and 51 healthy control children enrolled in public school with a GPA of 3.0-4.0 in Puebla, Mexico.</p>
+<p>Participants were included in the study if they were between the ages of 7-12 and had no history of a psychiatric disorder.</p>
+<p>Due to limited access to psychological services, this was the first experience seeking neuropsychological evaluation for all participants.</p>
+<p>The WISC-IV was administered to participants as part of a comprehensive neuropsychological evaluation process. Informed consent was obtained prior to evaluation.</p>
+<!-- html table generated in R 3.6.1 by xtable 1.8-4 package -->
+<!-- Mon Mar 23 15:34:35 2020 -->
+<table border="1">
+<caption align="top">
+Demographic Information for Sample
+</caption>
+<tr>
+<th>
+Variable
+</th>
+<th>
+Control
+</th>
+<th>
+Experimental
+</th>
+</tr>
+<tr>
+<td>
+Age (years)
+</td>
+<td align="right">
+8
+</td>
+<td align="right">
+9
+</td>
+</tr>
+<tr>
+<td>
+Parent Education (years)
+</td>
+<td align="right">
+10
+</td>
+<td align="right">
+14
+</td>
+</tr>
+<tr>
+<td>
+Male
+</td>
+<td align="right">
+34
+</td>
+<td align="right">
+20
+</td>
+</tr>
+<tr>
+<td>
+Female
+</td>
+<td align="right">
+17
+</td>
+<td align="right">
+15
+</td>
+</tr>
+</table>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<p>Independent sample T-Tests show no significant differences in Full-Scale IQ average (FSIQ) between the clinical sample (M=75.40, SD=11.81) and control group (M=79.73, SD=10.36). Scores of subtests for all participants can be found in figure 1.</p>
+<p>It is important to note we were unable to explain below average scores in the control group by any confounding demographic variable collected during our study.</p>
+<div class="figure" style="text-align: center"><span id="fig:irisfigure2"></span>
+<img src="sandiego_files/figure-html/irisfigure2-1.png" alt="VC - Vocabulary; SS- Symbol Search; SI - Similarities; PCn - Picture Concepts; MR - Matrix Reasoning; LN - Letter-Number Sequencing; DS - Digit Span; CO - Comprehension; CD - Coding; BD - Block Design." width="100%" />
+<p class="caption">
+Figure 1: VC - Vocabulary; SS- Symbol Search; SI - Similarities; PCn - Picture Concepts; MR - Matrix Reasoning; LN - Letter-Number Sequencing; DS - Digit Span; CO - Comprehension; CD - Coding; BD - Block Design.
+</p>
+</div>
+<p><img src="sandiego_files/figure-html/irisfigure-1.png" width="40%" height="30%" style="display: block; margin: auto;" /></p>
+<!-- html table generated in R 3.6.1 by xtable 1.8-4 package -->
+<!-- Mon Mar 23 15:34:37 2020 -->
+<table border="1">
+<caption align="top">
+Descriptive Statistics Comparing Experimental &amp; Control Groups
+</caption>
+<tr>
+<th>
+Index
+</th>
+<th>
+Experimental
+</th>
+<th>
+Control
+</th>
+<th>
+t
+</th>
+<th>
+p
+</th>
+</tr>
+<tr>
+<td>
+Verbal Comprehension
+</td>
+<td align="right">
+76.50
+</td>
+<td align="right">
+77.60
+</td>
+<td align="right">
+-0.40
+</td>
+<td align="right">
+0.69
+</td>
+</tr>
+<tr>
+<td>
+Perceptual Reasoning
+</td>
+<td align="right">
+84.90
+</td>
+<td align="right">
+88.40
+</td>
+<td align="right">
+-1.15
+</td>
+<td align="right">
+0.25
+</td>
+</tr>
+<tr>
+<td>
+Working Memory
+</td>
+<td align="right">
+76.90
+</td>
+<td align="right">
+88.30
+</td>
+<td align="right">
+-2.23
+</td>
+<td align="right">
+0.03
+</td>
+</tr>
+<tr>
+<td>
+Processing Speed
+</td>
+<td align="right">
+81.30
+</td>
+<td align="right">
+87.30
+</td>
+<td align="right">
+-2.19
+</td>
+<td align="right">
+0.03
+</td>
+</tr>
+<tr>
+<td>
+Full-Scale IQ
+</td>
+<td align="right">
+75.40
+</td>
+<td align="right">
+79.90
+</td>
+<td align="right">
+-1.80
+</td>
+<td align="right">
+0.08
+</td>
+</tr>
+</table>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p>Our results demonstrate low average IQ scores for both groups, indicating further research is needed in understanding the criterion validity of the WISC-IV when applied to clinical and control populations in Mexico.
+Furthermore, we recommend more research comparing the Mexican standardization of the WISC-IV with other clinical patients and healthy counterparts before utilizing as clinical evaluation tool. This is due to inability to explain below average scores in the control group by any confounding demographic variable.</p>
+<p>The WISC-IV norms were developed in Mexico on the basis of age, sex, and type of school (private/public) <span class="citation">(Fina, Sánchez-Escobedo, and Hollingworth <a href="#ref-Fina2012" role="doc-biblioref">2012</a>)</span>. Future research regarding the quality of education in pediatric populations and the effects on scores of neuropsychological measurements might be conducive in understanding the below average scores in our study.</p>
+</div>
+<div id="acknowledgements" class="section level1">
+<h1>Acknowledgements</h1>
+<p>This work was supported by scholarships from CONACYT to A.Giudicessi (#890272) &amp; C.Ibarra (#889901).</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-Fina2012">
+<p>Fina, Anthony D., Pedro Sánchez-Escobedo, and Liz Hollingworth. 2012. “Annotations on Mexico’s WISC-IV: A validity study.” <em>Applied Neuropsychology: Child</em> 1 (1): 6–17. <a href="https://doi.org/10.1080/21622965.2012.665771">https://doi.org/10.1080/21622965.2012.665771</a>.</p>
+</div>
+<div id="ref-SanMiguelMontes2010">
+<p>San Miguel Montes, Liza E., Daniel N. Allen, Antonio E. Puente, and Cris Neblina. 2010. “Validity of the wisc-iv spanish for a clinically referred sample of hispanic children.” <em>Psychological Assessment</em> 22 (2): 465–69. <a href="https://doi.org/10.1037/a0018895">https://doi.org/10.1037/a0018895</a>.</p>
+</div>
+<div id="ref-Wechsler2007">
+<p>Wechsler, David, and Gloria Padilla Sierra. 2007. <em>WISC-IV: escala Wechsler de inteligencia para niños-IV</em>. México, D.F.: EL Manual Moderno.</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="main">
+<p>Our results demonstrate no significant difference between our control and experimental groups indicating further research is needed in understanding the validity of the WISC-IV when applied to clinical populations in Mexico.</p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=>
+<img id="main-img-center" src=Image/BUAP_LOGO.png>
+<img id="main-img-right" src=>
+</div>
+</div>
+
+
+
+</body>
+</html>

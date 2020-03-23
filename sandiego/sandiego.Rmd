@@ -1,0 +1,224 @@
+---
+poster_height: "40in"
+poster_width: "42in"
+font_family: 'Rasa'
+#percent coverage of the poster
+main_topsize: 0.2 
+main_bottomsize: 0.12
+main_fontfamily: "Rasa"
+#ESSENTIALS
+title: 'Exploring the Criterion Validity of the WISC-IV in a Clinically Referred Sample of Children in Mexico'
+     
+author:
+  - name: 'Averi Giudicessi'
+    affil: 1
+    main: true
+    email: 'averigiudicessi@gmail.com'
+  - name: 'Cristian Ibarra'
+    affil: 1
+    main: true
+    email: 'cristian.ibarra@uabc.edu.mx'
+  - name: 'Hector Pelayo'
+    affil: 1
+    main: true
+
+affiliation:
+  - num: 1
+    address: Department of Psychology, Benemérita Universidad Autónoma de Puebla
+     
+main_findings:
+  - "Our results demonstrate no significant difference between our control and experimental groups indicating further research is needed in understanding the validity of the WISC-IV when applied to clinical populations in Mexico."
+title_textsize: "80pt"
+
+
+logocenter_name: "Image/BUAP_LOGO.png"
+
+ 
+output: 
+  posterdown::posterdown_betterport:
+    self_contained: false
+    pandoc_args: --mathjax
+    number_sections: false
+bibliography: sandiegobib.bib
+link-citations: true
+
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      tidy = FALSE,
+                      message = FALSE,
+                      fig.align = 'center',
+                      out.width = "100%")
+options(knitr.table.format = "html") 
+```
+
+# Introduction
+
+The Weschler Scale of Intelligence (WISC-IV) is one of the most commonly used measures in the neuropsychological evaluation of children. However, to our knowledge, only one other study addresses the clinical utility of the WISC-IV in a Spanish speaking population in Puerto Rico [@SanMiguelMontes2010]. 
+
+The Escala Weschler de Inteligencia para Niños-IV [@Wechsler2007] is the most current version of the Weschler Scale of intelligence for use specifically with the Mexican Spanish speaking population. 
+
+The WISC-IV was piloted in Mexico in 2005 and adapted comprehensively using a process that considered the translation, adaptation, and best practice guidelines put forth by the International Guidelines for Test Adaptation [@Fina2012]. 
+
+The adaptation of the WISC-IV exemplifies the necessity for appropriate testing material in a Mexican population however, to our knowledge little information is available regarding the clinical utility of this specific instrument in Mexico.
+
+```{r, include=FALSE}
+knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
+```
+
+## Objectives
+
+The objective of this study was to examine the criterion validity of the WISC-IV’s subtests and index scores in a clinically referred sample in Mexico.    
+
+Our hypothesis was that participants in the clinical group would perform significantly worse than their healthy counterparts on both full scale IQ and domain scores than the participants in the control group.
+
+
+
+# Methods
+The present study included 86 participants, 35 clinical patients referred for neuropsychological evaluation for persistent learning difficulties at a public clinic and 51 healthy control children enrolled in public school with a GPA of 3.0-4.0 in Puebla, Mexico. 
+
+Participants were included in the study if they were between the ages of 7-12 and had no history of a psychiatric disorder. 
+
+Due to limited access to psychological services, this was the first experience seeking neuropsychological evaluation for all participants. 
+
+The WISC-IV was administered to participants as part of a comprehensive neuropsychological evaluation process. Informed consent was obtained prior to evaluation. 
+
+```{r, irisfigure11, results = 'asis', fig.width = 12, fig.asp = .62, out.width="60%"}
+
+conference <- read.csv("SANDIEGODATA.csv", header = TRUE)
+attach(conference)
+library("plyr")
+library("ggplot2")
+library("ggpubr")
+library("tidyverse")
+library("dslabs")
+library("xtable")
+
+  Experimental <- c(9.26, 14.5 , 20, 15 )
+  Control <- c(7.88, 10.2, 34, 17 )
+  Variable <- c("Age (years)", "Parent Education (years)", "Male", "Female") 
+  allexercises <- data.frame(Variable, Control, Experimental)
+
+
+print(xtable(allexercises, digits = 0, caption = "Demographic Information for Sample"), size="\\fontsize{20pt}\\rasa", include.rownames= FALSE, width = "\\textwidth",caption.placement = 'top', type= "html")
+
+```
+
+# Results
+
+Independent sample T-Tests show no significant differences in Full-Scale IQ average (FSIQ) between the clinical sample (M=75.40, SD=11.81) and control group (M=79.73, SD=10.36). Scores of subtests for all participants can be found in figure 1.   
+
+It is important to note we were unable to explain below average scores in the control group by any confounding demographic variable collected during our study. 
+
+```{r, irisfigure2, fig.cap = 'VC - Vocabulary; SS- Symbol Search; SI - Similarities; PCn - Picture Concepts; MR - Matrix Reasoning; LN - Letter-Number Sequencing; DS - Digit Span; CO - Comprehension; CD - Coding; BD - Block Design.', fig.width = 9, fig.asp = .52, out.width="100%"}
+
+conference <- read.csv("SANDIEGODATA.csv", header = TRUE)
+attach(conference)
+library("plyr")
+library("ggplot2")
+library("ggpubr")
+library("tidyverse")
+library("dslabs")
+
+exercisesexperimental <- c(5.7, 6.6, 5.4, 8.8, 6.5, 7.6, 6.4, 4.5, 7.2, 7.2)
+exercisescontrol <- c(4.3, 7.6, 6.6, 9.2, 6.7, 7.8, 8.9, 5.1, 8.0, 7.5)
+  names <- c("SI", "VC", "CO", "BD", 
+             "PCn", "MR", "DS", "LN", "CD", "SS") 
+allexercises <- data.frame(exercisesexperimental, exercisescontrol, names)
+allexercises$names <- factor(allexercises$names, levels =
+                         c("SI", "VC", "CO", "BD" ,"PCn" , "MR", "DS","LN","CD","SS" ))
+
+  gg_dot <-  ggplot() +
+    # remove axes and superfluous grids
+    theme_classic() +
+    theme(axis.title = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.line = element_blank()) +
+    # add a dummy point for scaling purposes
+    geom_point(aes(x = 10, y = names), 
+               size = 0, col = "white") + 
+    # add the horizontal discipline lines
+    geom_hline(yintercept = 1:10, col = "grey80") +
+    # add a point for each male success rate
+    geom_point(aes(x = exercisesexperimental, y = names), 
+               size = 10, col = "#9DBEBB") +
+    # add a point for each female success rate
+    geom_point(aes(x = exercisescontrol, y = names),
+               size = 10, col = "#468189") 
+  
+  gg_dot <- gg_dot + 
+    geom_text(aes(x = exercisesexperimental, y = names, 
+                  label = paste0(round(exercisesexperimental, 1))),
+              col = "black") +
+    geom_text(aes(x = exercisescontrol, y = names, 
+                  label = paste0(round(exercisescontrol, 1))),
+              col = "white") +
+    geom_text(aes(x = x, y = y, label = label, col = label),
+              data.frame(x = c(6.6, 7.6), y = 10,
+                                    label = c("experimental", "control")), vjust = -1.5,  size = 5) +
+    scale_color_manual(values = c("#468189", "#9DBEBB"), guide = "none") +
+    scale_x_continuous(expand_scale())  +
+    scale_x_continuous(breaks = c(4, 5, 6, 7, 8, 9, 10), 
+                       labels = c("4", "5", "6", "7", "8", "9", "10")) +
+    scale_y_discrete(expand = c(0.2, 0)) + labs(title = "Subtest Scores")
+  gg_dot  
+
+```
+
+
+```{r, irisfigure, out.width="40%", out.height="30%"}
+conference <- read.csv("SANDIEGODATA.csv", header = TRUE)
+attach(conference)
+library("plyr")
+library("ggplot2")
+library("ggpubr")
+library("tidyverse")
+library("dslabs")
+ejercicios <- ggviolin(data = conference, x = "Control.Experimental", y = "Escalatotal", fill = "Control.Experimental",
+         palette = c("#008080", "#0b4545", "#FC4E07"),
+         add = "boxplot", add.params = list(fill = "white")) + theme(legend.position = "none") 
+
+#Graph without X and Y values#
+
+ejercicios + theme(axis.title.x=element_blank(), axis.title.y=element_blank(), axis.text.x = element_text(size = 10)) + labs(title = "Control and Experimental Full-Scale IQ Scores")
+
+```
+
+
+```{r, irisfigure122, fig.cap= 'demographic information', results = 'asis', fig.width = 12, fig.asp = .62, out.width="60%"}
+conference <- read.csv("SANDIEGODATA.csv", header = TRUE)
+attach(conference)
+library("plyr")
+library("ggplot2")
+library("ggpubr")
+library("tidyverse")
+library("dslabs")
+library("xtable")
+
+
+Control <- c(77.6, 88.4, 88.3, 87.3, 79.9)
+Experimental <- c(76.5, 84.9, 76.9, 81.3, 75.4)
+t <- c(-0.40, -1.15, -2.23, -2.19, -1.80)
+p <- c(0.69, 0.25, 0.03, 0.03, 0.08)
+Index <- c("Verbal Comprehension"
+          ,"Perceptual Reasoning","Working Memory", "Processing Speed", "Full-Scale IQ")
+df <- data.frame(Index, Experimental, Control, t, p)
+
+print(xtable(df, caption = "Descriptive Statistics Comparing Experimental & Control Groups"), size="\\fontsize{20pt}\\rasa", include.rownames= FALSE, width = "\\textwidth", caption.placement = 'top', type = "html")
+
+```
+
+# Conclusions
+Our results demonstrate low average IQ scores for both groups, indicating further research is needed in understanding the criterion validity of the WISC-IV when applied to clinical and control populations in Mexico. 
+Furthermore, we recommend more research comparing the Mexican standardization of the WISC-IV with other clinical patients and healthy counterparts before utilizing as clinical evaluation tool. This is due to inability to explain below average scores in the control group by any confounding demographic variable. 
+
+The WISC-IV norms were developed in Mexico on the basis of age, sex, and type of school (private/public) [@Fina2012]. Future research regarding the quality of education in pediatric populations and the effects on scores of neuropsychological measurements might be conducive in understanding the below average scores in our study.
+
+# Acknowledgements
+This work was supported by scholarships from CONACYT to A.Giudicessi (#890272) & C.Ibarra (#889901).
+
+# References
+
+
